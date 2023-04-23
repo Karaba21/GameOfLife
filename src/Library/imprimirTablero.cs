@@ -1,35 +1,16 @@
-using System;
 using System.Text;
 
-public class imprimirTablero{
+namespace PII_Game_Of_Life{
+    public class Tablero{
+        public bool[,] gameBoard {get;}
+        public int boardWidth{get;}
+        public int boardHeight {get;}
 
-    public static bool[,] imprimirTablero(bool[,] tablero)
-    {
-        bool[,] b = tablero;
-        int width = b.GetLength(0);
-        int height = b.GetLength(1);
-        while (true)
+        public Tablero (bool[,] board)
         {
-            Console.Clear();
-            StringBuilder a = new StringBuilder();
-            for (int y = 0; y<height; y++)
-            {
-                for (int x = 0; x<width; x++)
-                {
-                    if (b[x,y])
-                    {
-                        a.Append("|X|");
-                    }
-                    else
-                    {
-                        a.Append("__");
-                    }
-                }
-                a.Append("\n");
-            }
-            Console.WriteLine(a.ToString());
-            b= Logica.Play(b);
-            Thread.Sleep(300);
+            this.gameBoard = board;
+            this.boardHeight = board.GetLength(0);
+            this.boardWidth = board.GetLength(1);
         }
     }
 }

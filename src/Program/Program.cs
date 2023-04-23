@@ -6,8 +6,9 @@ namespace PII_Game_Of_Life
     {
         static void Main(string[] args)
         {
-            bool[,] tablero = importadorArchivo.importtablero(@"../../assets/board.txt");
-            imprimirTablero.
+            bool[,] boardFile = importadorArchivo.LeerArchivo();
+            Tablero board = new Tablero(boardFile);
+            DibujarTabla.dibujarTablero(board.gameBoard);
         }
     }
 }
